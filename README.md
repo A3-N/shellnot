@@ -70,8 +70,8 @@ Last login: Sat May 24 16:45:40 2025 from 10.0.0.2
 ./shellnot --session 1 --output
 id
 uid=1001(root) gid=1001(root) groups=1001(root),970(docker),998(wheel)
-[risk@localhost ~]$
-[risk@localhost ~]$ ⏎ 
+[root@localhost ~]$
+[root@localhost ~]$ ⏎ 
 ./shellnot --session 1 --input "exit"
 ./shellnot --session 1 --output
 exit
