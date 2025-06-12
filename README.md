@@ -92,6 +92,20 @@ mcrn        5770  0.0  0.0   2772   956 pts/0    S    22:33   0:00 ./shellnot --
 ---
 
 *Ignore the warning, made it to be as small as possible for base64 transfer over `echo` with RCE.*
+
 ```sh
-gcc shellnot.c -o shellnot
+musl-gcc -static -O2 -s -o shellnot-linux-generic shellnot-linux-generic.c
+
+./shellnot-linux-generic --daemon &
+./shellnot-linux-generic --session 1 --input "ls -al"
+./shellnot-linux-generic --session 1 --output
 ```
+
+```sh
+musl-gcc -Os -static -s -o snm shellnot-linux-minimal.c
+
+./snm d&
+./snm i 'ls -al'
+./snm o
+```
+
