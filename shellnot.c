@@ -1,4 +1,10 @@
-#include<pty.h>
+#if defined(__APPLE__)
+  #include <util.h>
+#elif defined(__linux__) || defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__)
+  #include <pty.h>
+#else
+  #error "Unsupported platform: no known PTY header found."
+#endif
 #include<fcntl.h>
 #include<sys/socket.h>
 #include<sys/un.h>
